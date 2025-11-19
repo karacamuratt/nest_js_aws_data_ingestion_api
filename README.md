@@ -35,6 +35,8 @@ The app follows a modular and decoupled architecture, primarily focusing on sepa
 - Run command "npm install"
 - Run command "npm run start:dev"
 
+- Bull Dashboard can be reachable from "http://localhost:3000/bull-board" as it's defined in src/main.ts file
+
 ### Future Improvements (Areas for Development)
 
 - Monitoring & Tracing
