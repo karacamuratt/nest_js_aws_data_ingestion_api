@@ -41,6 +41,6 @@ The app follows a modular and decoupled architecture, primarily focusing on sepa
 
 - Monitoring & Tracing
 - Structured Logging
-- AWS SDK ve Rights
+- AWS SDK, Rights and Roles
 - Validations
 - QueryParserService Improvements
