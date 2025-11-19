@@ -1,0 +1,151 @@
+{
+	"info": {
+		"name": "NestJS Data Ingestion API Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Trigger Ingestion (S3 Link 1)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"s3Url\": \"{{s3_bucket_1_url}}\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ingestion/trigger",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ingestion",
+						"trigger"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2. Trigger Ingestion (S3 Link 2)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"s3Url\": \"{{s3_bucket_2_url}}\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ingestion/trigger",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ingestion",
+						"trigger"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3. Query: Get All & Pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/data?_limit={{default_limit}}&_skip=0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"data"
+					],
+					"query": [
+						{
+							"key": "_limit",
+							"value": "{{default_limit}}"
+						},
+						{
+							"key": "_skip",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Query: Price Range & Availability",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/data?unifiedPrice__gt=500&unifiedPrice__lte=750&unifiedIsAvailable=true&_limit=50",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"data"
+					],
+					"query": [
+						{
+							"key": "unifiedPrice__gt",
+							"value": "500",
+							"description": "Fiyatı 500'den büyük olanlar"
+						},
+						{
+							"key": "unifiedPrice__lte",
+							"value": "750",
+							"description": "Fiyatı 750'den küçük veya eşit olanlar"
+						},
+						{
+							"key": "unifiedIsAvailable",
+							"value": "true",
+							"description": "Sadece müsait olanlar"
+						},
+						{
+							"key": "_limit",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Query: City and Contains (Text Search)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/data?unifiedCity__eq=Izmir&unifiedName__contains=Grand",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"data"
+					],
+					"query": [
+						{
+							"key": "unifiedCity__eq",
+							"value": "Paris",
+							"description": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
