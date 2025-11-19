@@ -27,18 +27,18 @@ The app follows a modular and decoupled architecture, primarily focusing on sepa
 
 ### Run Steps 
 
-Under "postman" folder, postman environment and postman collection file can be imported in Postman for testing purpose.
-in Postman, adjust s3 Bucket URLs in environment variables before submitting a request.
-adjust the environment for the collection successfully in Postman.
+- Under "postman" folder, postman environment and postman collection file can be imported in Postman for testing purpose.
+- in Postman, adjust s3 Bucket URLs in environment variables before submitting a request.
+- adjust the environment for the collection successfully in Postman.
 
-Run command "docker-compose up -d"
-Run command "npm install"
-Run command "npm run start:dev"
+- Run command "docker-compose up -d"
+- Run command "npm install"
+- Run command "npm run start:dev"
 
 ### Future Improvements (Areas for Development)
 
-1- Monitoring & Tracing
-2- Structured Logging
-3- AWS SDK ve Rights
-4- Validations
-5- QueryParserService Improvements
+- Monitoring & Tracing
+- Structured Logging
+- AWS SDK ve Rights
+- Validations
+- QueryParserService Improvements
